@@ -17,4 +17,13 @@ class HarmonicField
 	private:
 		const int modulus;
 		const std::vector<int> harmonics;	
+
+	public:
+		static const HarmonicField Lydian;
+		static const HarmonicField Ionian;
+		static const HarmonicField Myxolydian;
+		static const HarmonicField Dorian;
+		static const HarmonicField Aeolian;
+		static const HarmonicField Phrygian;
+		static const HarmonicField Locrian;
 	};

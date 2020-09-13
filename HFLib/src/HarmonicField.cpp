@@ -29,3 +29,11 @@ HarmonicField HarmonicField::operator()( const HarmonicField & h ) const
 		newHarmonics[i] = (*this)( h( i + 1 ) );
 	return HarmonicField( newHarmonics );
 	}
+
+const HarmonicField HarmonicField::Lydian	 ( { 2, 4, 6, 7, 9, 11, 12 } );
+const HarmonicField HarmonicField::Ionian	 ( { 2, 4, 5, 7, 9, 11, 12 } );
+const HarmonicField HarmonicField::Myxolydian( { 2, 4, 5, 7, 9, 10, 12 } );
+const HarmonicField HarmonicField::Dorian	 ( { 2, 3, 5, 7, 9, 10, 12 } );
+const HarmonicField HarmonicField::Aeolian	 ( { 2, 3, 5, 7, 8, 10, 12 } );
+const HarmonicField HarmonicField::Phrygian	 ( { 1, 3, 5, 7, 8, 10, 12 } );
+const HarmonicField HarmonicField::Locrian	 ( { 1, 3, 5, 6, 8, 10, 12 } );
