@@ -4,7 +4,6 @@
 
 std::vector<int> harmonicsSetup( std::vector<int> v )
 	{
-	//std::sort( v.begin(), v.end() );
 	v.pop_back();
 	v.insert( v.begin(), 0 );
 	return v;
