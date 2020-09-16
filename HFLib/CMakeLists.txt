@@ -1,5 +1,6 @@
 add_library( HFLib 
-	src/HarmonicField.cpp
+	"src/Field.cpp"
+	"src/Filter.cpp"
 	)
 
 target_include_directories( HFLib 
