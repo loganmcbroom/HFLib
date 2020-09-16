@@ -2,6 +2,11 @@
 
 using namespace HFLib;
 
+static int mod( int a, int b )
+	{
+	return ( ( a % b ) + b ) % b;
+	}
+
 std::vector<size_t> mapSetup( std::vector<size_t> v )
 	{
 	v.pop_back();
@@ -9,9 +14,9 @@ std::vector<size_t> mapSetup( std::vector<size_t> v )
 	return v;
 	}
 
-Filter::Filter( std::vector<size_t> _harmonics )
-	: _modulus( _harmonics.back() )
-	, map( mapSetup( std::move( _harmonics ) ) )
+Filter::Filter( std::vector<size_t> v )
+	: _modulus( v.back() )
+	, map( mapSetup( std::move( v ) ) )
 	{
 	}
 
@@ -33,4 +38,18 @@ Filter Filter::operator()( const Filter & h ) const
 	for( int i = 0; i < newHarmonics.size(); ++i )
 		newHarmonics[i] = (*this)( h( i + 1 ) );
 	return Filter( newHarmonics );
+	}
+
+Filter Filter::rotate( int r ) const
+	{
+	r = mod( r, modulus() );
+
+	if( r == 0 ) return *this;
+
+	const size_t rJump = (*this)( r );
+	std::vector<size_t> newMap( map.size() );
+	for( int i = 0; i < newMap.size(); ++i )
+		newMap[i] = (*this)( i + 1 + r ) - rJump;
+
+	return Filter( newMap );
 	}

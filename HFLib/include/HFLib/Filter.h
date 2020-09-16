@@ -28,6 +28,8 @@ class Filter
 		/** The period of the function */
 		size_t period() const { return map.size(); }
 
+		Filter rotate( int r ) const;
+
 	private:
 		const size_t _modulus;
 		const std::vector<size_t> map;

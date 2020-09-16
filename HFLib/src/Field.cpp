@@ -5,7 +5,7 @@
 
 using namespace HFLib;
 
-int mod( int a, int b )
+static int mod( int a, int b )
 	{
 	return ( ( a % b ) + b ) % b;
 	}
