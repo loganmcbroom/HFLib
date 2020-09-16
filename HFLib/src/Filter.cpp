@@ -15,6 +15,11 @@ Filter::Filter( std::vector<size_t> _harmonics )
 	{
 	}
 
+
+Filter::Filter( std::initializer_list<size_t> v )
+	: Filter( std::vector<size_t>( v ) )
+	{}
+
 size_t Filter::operator()( size_t i ) const
 	{
 	const int r = i % period();

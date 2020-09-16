@@ -14,6 +14,7 @@ class Filter
 	{
 	public:
 		Filter( std::vector<size_t> v );
+		Filter( std::initializer_list<size_t> v );
 
 		/** Evaluate the filter as a function */
 		size_t operator()( size_t i ) const;

@@ -12,6 +12,6 @@ void main()
 	//HarmonicField b( { 2, 3 } );
 	//HarmonicField c = HarmonicField::Ionian( b );
 
-	for( int i = 0; i <= 12; ++i )
-		std::cout << Field::Chromatic( i ) << ", ";
+	for( int i = 0; i <= 7; ++i )
+		std::cout << Field::Ionian( i ) << ", ";
 	}

@@ -2,6 +2,8 @@
 
 #include <vector>
 
+#include "HFLib/Filter.h"
+
 namespace HFLib
 {
 
@@ -21,6 +23,8 @@ class Field
 
 		double operator()( int i ) const;
 
+		Field filter( const Filter & ) const;
+
 		double multiplier( int i ) const;
 
 		size_t modulus() const;
@@ -30,14 +34,18 @@ class Field
 		const double fundamental;
 
 	public:
+		/** Generates an n-tone equal temperment field */
+		static Field nTet( size_t n, double fundamental = 440.0 );
+
 		static const Field Chromatic;
-		//static const Field Lydian;
-		//static const Field Ionian;
-		//static const Field Myxolydian;
-		//static const Field Dorian;
-		//static const Field Aeolian;
-		//static const Field Phrygian;
-		//static const Field Locrian;
+
+		static const Field Lydian;
+		static const Field Ionian;
+		static const Field Myxolydian;
+		static const Field Dorian;
+		static const Field Aeolian;
+		static const Field Phrygian;
+		static const Field Locrian;
 	};
 
 };
